@@ -22,7 +22,9 @@ namely:
 
 - Todo
 - In Progress
-- Done Task can be moved from one category to another
+- Done
+
+Task can be moved from one category to another
 
 ## Secret Management
 
@@ -80,3 +82,7 @@ SQLit while bootstrapping the project (Hopefully I will revist).
 I plan on using gitbooks, to document all my decission making and issues. This
 project will also come with a swagger doc for all the API endpoint. I will also
 try to keeep this ReadMe file up to date.
+
+## How to Run the app
+
+- TODO
