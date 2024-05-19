@@ -5,7 +5,7 @@ import packageJson from '../../../package.json';
 import path from 'path';
 import fs from 'fs/promises';
 import { isProduction } from '../../configs';
-import { AppConfig } from 'src/configs/configs.type';
+import { AppConfig } from '../../configs/configs.type';
 
 export class Documentation {
 	// ---
