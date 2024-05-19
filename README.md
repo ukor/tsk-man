@@ -7,12 +7,13 @@ The app act as the backend server for a task manager.
 
 ## Product Requirements
 
-Users should bale to perform the following actions
+Users should be able to perform the following actions
 
 - Sign up with email, password, name
 - Login with email and password
 - Create project
 - Add Task to the project
+- Move task around (from one sub-category to another)
 
 ### Project
 
@@ -48,6 +49,10 @@ much better way is to use CRDT Algorithms.
 
 Socket can be leverage here to provide collaborative feature. Depending on my
 time and schedule, I may and may not implement that.
+
+I have never liked the idea of using socket.io with NestJS. The abstraction is
+way too much. If scalibility and control is in mind, I will alway recommend that
+socket.io should be use as a standalone (That's is how I use it).
 
 ### Yjs
 
