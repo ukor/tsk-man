@@ -53,3 +53,25 @@ export class HttpDefaultResponse extends HttpBaseResponse {
 		Object.assign(this, arg);
 	}
 }
+
+export class HttpBooleanResponse extends HttpBaseResponse {
+	@ApiProperty({ type: Boolean })
+	payload: boolean;
+
+	constructor(arg: any) {
+		super(arg);
+
+		Object.assign(this, arg);
+	}
+}
+
+export class HttpStringResponse extends HttpBaseResponse {
+	@ApiProperty({ type: String })
+	payload: string;
+
+	constructor(arg: any) {
+		super(arg);
+
+		Object.assign(this, arg);
+	}
+}

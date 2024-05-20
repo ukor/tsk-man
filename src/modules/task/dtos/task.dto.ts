@@ -134,3 +134,47 @@ export class TaskWithSubCategoryResponse extends HttpBaseResponse {
 		Object.assign(this, arg);
 	}
 }
+
+export class ChangeTaskRequestPayload {
+	// ---
+
+	@ApiProperty()
+	@IsNotEmpty()
+	@IsString()
+	projectId: string;
+
+	@ApiProperty()
+	@IsString()
+	@IsNotEmpty()
+	taskId: string;
+
+	@ApiProperty({ enum: TaskState })
+	@IsNotEmpty()
+	taskState: TaskState;
+
+	constructor(arg: any) {
+		// ---
+
+		Object.assign(this, arg);
+	}
+}
+
+export class DeleteTaskRequestPayload {
+	// ---
+
+	@ApiProperty()
+	@IsNotEmpty()
+	@IsString()
+	projectId: string;
+
+	@ApiProperty()
+	@IsString()
+	@IsNotEmpty()
+	taskId: string;
+
+	constructor(arg: any) {
+		// ---
+
+		Object.assign(this, arg);
+	}
+}

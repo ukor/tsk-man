@@ -37,6 +37,36 @@ export class TaskService {
 		return result;
 	}
 
+	async changeTaskState(
+		userId: string,
+		projectId: string,
+		taskId: string,
+		state: TaskState,
+	) {
+		// ---
+
+		const result = await this.taskRepository.updateTaskState(
+			taskId,
+			projectId,
+			userId,
+			state,
+		);
+
+		return result;
+	}
+
+	async deleteTask(userId: string, projectId, taskId: string) {
+		// ---
+
+		const result = await this.taskRepository.deleteTask(
+			taskId,
+			projectId,
+			userId,
+		);
+
+		return result;
+	}
+
 	private parseDate(date: string) {
 		// ---
 
