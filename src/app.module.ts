@@ -6,6 +6,7 @@ import { configurations } from './configs';
 import { AuthModule } from './modules/auth/auth.module';
 
 import { DatabaseModule } from './modules/mongodb/mongodb.module';
+import { ProjectModule } from './modules/project/project.module';
 
 @Module({
 	imports: [
@@ -16,6 +17,7 @@ import { DatabaseModule } from './modules/mongodb/mongodb.module';
 		}),
 		DatabaseModule,
 		AuthModule,
+		ProjectModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],

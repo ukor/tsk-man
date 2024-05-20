@@ -5,6 +5,7 @@ export const CollectionNames = {
 	tasks: 'tasks',
 	Users: 'users',
 	Sessions: 'sessions',
+	Project: 'projects',
 };
 
 export type CollectionNames = typeof CollectionNames;
