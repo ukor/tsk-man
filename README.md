@@ -88,8 +88,20 @@ I plan on using gitbooks, to document all my decission making and issues. This
 project will also come with a swagger doc for all the API endpoint. I will also
 try to keep this ReadMe file up to date.
 
-- (Documentation on GitBook)[https://jidechi-org.gitbook.io/readme]
+- [Documentation on GitBook][https://jidechi-org.gitbook.io/readme]
+
+- ~~[Tsk-Man](https://jidechi-org.gitbook.io/tsk-man/)~~
 
 ## How to Run the app
 
-- TODO
+- TODO (improve this)
+
+```sh
+npm install
+```
+
+- Start dev server
+
+```
+npm run start:dev
+```
