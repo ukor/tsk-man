@@ -57,6 +57,8 @@ export class SignupRepository {
 	async setEmailAndPassword(
 		emailAddr: string,
 		hashedPassword: string,
+		firstName: string,
+		lastName: string,
 	): Promise<ObjectId> {
 		// ---
 
@@ -78,6 +80,8 @@ export class SignupRepository {
 					isVerified: false,
 				},
 				password: hashedPassword,
+				firstName,
+				lastName,
 				status: UserStatus.added_email,
 				updatedAt: new Date(),
 			});

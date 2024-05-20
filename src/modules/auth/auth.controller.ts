@@ -12,6 +12,7 @@ import {
 // import { UserService } from '../user/user.service';
 import {
 	ApiBearerAuth,
+	ApiCreatedResponse,
 	ApiDefaultResponse,
 	ApiOkResponse,
 	ApiSecurity,
@@ -46,14 +47,9 @@ export class AuthController {
 
 	@Post('sign-up/email')
 	@HttpCode(HttpStatus.OK)
-	@ApiOkResponse({ type: SetEmailAndPasswordHttpResponse })
+	@ApiCreatedResponse({ type: SetEmailAndPasswordHttpResponse })
 	@ApiDefaultResponse({ type: HttpDefaultResponse })
-	@ApiBearerAuth()
-	@UseGuards(VerifyOtpGuard)
-	async setEmailAndPassword(
-		@AuthenticatedUser() aUser: AuthUser,
-		@Body() body: RegisterSetEmailAndPassword,
-	) {
+	async setEmailAndPassword(@Body() body: RegisterSetEmailAndPassword) {
 		// ---
 
 		const result = await this.signupService.setEmailAndPassword(body);

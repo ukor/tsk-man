@@ -97,7 +97,7 @@ export class AuthRegisterDto {
 	userTag: string;
 
 	@ApiProperty({
-		example: '12th Oct, 1992',
+		example: '12th Oct, 1989',
 		description: 'Date of Birth(dob) for the new user',
 	})
 	@Type(() => Date)
@@ -105,7 +105,7 @@ export class AuthRegisterDto {
 	dob: string;
 
 	@ApiProperty({
-		example: '+2349019133013',
+		example: '+2349019000003',
 		description: 'The phone number of the User',
 		format: 'phone number',
 	})

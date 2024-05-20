@@ -49,7 +49,7 @@ export class SignUpService {
 			arg.emailAddr,
 		);
 
-		if (user !== null && user.status === UserStatus.active) {
+		if (user !== null) {
 			throw new ConflictException('Email address already in use.');
 		}
 
@@ -61,12 +61,14 @@ export class SignUpService {
 		const userId = await this.signupRepository.setEmailAndPassword(
 			arg.emailAddr,
 			hashedPassword,
+			arg.firstName,
+			arg.lastName,
 		);
 
 		// const otp = this.otpService.generate(deviceHash);
 		const otp = '123456';
 
-		await this.sendOtpViaEmail(arg.emailAddr, otp, user.firstName);
+		await this.sendOtpViaEmail(arg.emailAddr, otp, arg.firstName);
 
 		const token = await this.sharedService.generateJWT(
 			userId.toString(),

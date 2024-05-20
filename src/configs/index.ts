@@ -40,7 +40,8 @@ export const configurations = (): AppConfig => ({
 	},
 	mongo: {
 		host: secrets.MONGO_HOST,
-		user: `${NODE_ENV}${secrets.MONGO_USER}`,
+		// user: `${NODE_ENV}${secrets.MONGO_USER}`,
+		user: `${secrets.MONGO_USER}`,
 		password: secrets.MONGO_PASSWORD,
 		name: `${NODE_ENV}_${secrets.MONGO_NAME}` || `tsk_man_${NODE_ENV}`,
 	},

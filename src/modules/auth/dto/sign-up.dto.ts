@@ -17,7 +17,7 @@ export class RegisterSetPhoneNumber {
 	// ---
 
 	@ApiProperty({
-		example: '+2349019133013',
+		example: '+2349019000003',
 		description: 'The phone number of the User',
 		format: 'phone number',
 	})
@@ -190,6 +190,26 @@ export class RegisterSetEmailAndPassword {
 	@MinLength(6)
 	@MaxLength(32)
 	confirmPassword: string;
+
+	@ApiProperty({
+		example: 'Kamsi',
+		format: 'string',
+		minLength: 2,
+	})
+	@IsString()
+	@IsNotEmpty()
+	@MinLength(2)
+	firstName: string;
+
+	@ApiProperty({
+		example: 'Mofe',
+		format: 'string',
+		minLength: 2,
+	})
+	@IsString()
+	@IsNotEmpty()
+	@MinLength(2)
+	lastName: string;
 
 	@ApiProperty({
 		description:
