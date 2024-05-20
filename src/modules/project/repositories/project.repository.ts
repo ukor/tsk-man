@@ -68,7 +68,42 @@ export class ProjectRepository {
 		}
 	}
 
-	async getProjectByUser(userId: string) { }
+	async getProjectByUser(
+		userId: string,
+		projectId: string,
+	): Promise<ProjectEntity | null> {
+		// ---
 
-	async getProjectsByUser(userId: string) { }
+		const projectIdAsObjectId = new ObjectId(projectId);
+
+		const userIdAsObjectId = new ObjectId(userId);
+
+		const project = await this.dbInstance
+			.collection(CollectionNames.Project)
+			.findOne<ProjectEntity>({
+				_id: projectIdAsObjectId,
+				createdBy: userIdAsObjectId,
+			});
+
+		return project;
+	}
+
+	async getProjectsByUser(userId: string): Promise<ProjectEntity[]> {
+		// ---
+
+		const userIdAsObjectId = new ObjectId(userId);
+
+		console.log({ userIdAsObjectId, userId });
+
+		const projects = await this.dbInstance
+			.collection(CollectionNames.Project)
+			.find<ProjectEntity>({
+				createdBy: userIdAsObjectId,
+			})
+			.toArray();
+
+		console.log(projects);
+
+		return projects;
+	}
 }

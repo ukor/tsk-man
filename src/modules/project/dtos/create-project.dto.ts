@@ -31,7 +31,7 @@ export class ProjectDto extends ProjectBase {
 	}
 }
 
-export class CreateProjectResponse extends HttpBaseResponse {
+export class ProjectResponse extends HttpBaseResponse {
 	// ---
 
 	@ApiProperty({
@@ -39,6 +39,44 @@ export class CreateProjectResponse extends HttpBaseResponse {
 		description: 'A map matching project details to it corresponding values',
 	})
 	payload: ProjectDto;
+
+	constructor(arg: any) {
+		super(arg);
+
+		Object.assign(this, arg);
+	}
+}
+
+export class ProjectsWithPagination {
+	// ---
+
+	@ApiProperty({
+		type: () => ProjectDto,
+		isArray: true,
+		description: 'An array of projects with it corresponding values',
+	})
+	projects: ProjectDto[];
+
+	@ApiProperty({
+		nullable: true,
+		description:
+			'An object that stores the the position of the client while navigating through a large project list (TODO)',
+	})
+	paginationCursor: unknown;
+
+	constructor(arg: any) {
+		Object.assign(this, arg);
+	}
+}
+
+export class ProjectsResponse extends HttpBaseResponse {
+	// ---
+
+	@ApiProperty({
+		type: () => ProjectsWithPagination,
+		description: '',
+	})
+	payload: ProjectsWithPagination;
 
 	constructor(arg: any) {
 		super(arg);
