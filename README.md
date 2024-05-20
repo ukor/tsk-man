@@ -80,7 +80,8 @@ SQLit while bootstrapping the project (Hopefully I will revist).
 
 - Node version 18 and above
 - MongoDb
-- Docker, maybe
+- Docker and docker compose
+- make
 
 ## Documentation
 
@@ -96,12 +97,14 @@ try to keep this ReadMe file up to date.
 
 - TODO (improve this)
 
+- Developement
+
 ```sh
-npm install
+make dev
 ```
 
-- Start dev server
+or
 
 ```
-npm run start:dev
+docker-compose up development
 ```

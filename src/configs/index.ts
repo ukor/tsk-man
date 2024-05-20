@@ -11,6 +11,8 @@ import {
 
 const secrets = process.env;
 
+console.log({ secrets });
+
 const NODE_ENV: Environments =
 	environments[(secrets.environment as EnvironmentKeys) || 'dev'];
 
