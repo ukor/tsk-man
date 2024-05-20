@@ -1,9 +1,9 @@
-import { Db, MongoClient } from 'mongodb';
+import { Db, MongoClient, ServerApiVersion } from 'mongodb';
 import { Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MConnection } from './mongodb.dto';
-import { MONGODB_PROVIDER } from 'src/commons/constants';
-import { MongoConfigs } from 'src/configs/configs.type';
+import { MongoConfigs } from '../../configs/configs.type';
+import { MONGODB_PROVIDER } from '../../commons/constants';
 
 const databaseProvider = {
 	provide: MONGODB_PROVIDER,
@@ -13,7 +13,13 @@ const databaseProvider = {
 
 			const uri = `mongodb+srv://${mConfigs.user}:${mConfigs.password}@${mConfigs.host}/${mConfigs.name}`;
 
-			const client: MongoClient = new MongoClient(uri);
+			const client: MongoClient = new MongoClient(uri, {
+				serverApi: {
+					version: ServerApiVersion.v1,
+					strict: true,
+					deprecationErrors: true,
+				},
+			});
 
 			await client.connect();
 
