@@ -86,7 +86,9 @@ SQLit while bootstrapping the project (Hopefully I will revist).
 
 I plan on using gitbooks, to document all my decission making and issues. This
 project will also come with a swagger doc for all the API endpoint. I will also
-try to keeep this ReadMe file up to date.
+try to keep this ReadMe file up to date.
+
+- (Documentation on GitBook)[https://jidechi-org.gitbook.io/readme]
 
 ## How to Run the app
 
