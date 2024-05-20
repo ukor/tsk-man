@@ -9,9 +9,18 @@ const databaseProvider = {
 	provide: MONGODB_PROVIDER,
 	useFactory: async (configService: ConfigService): Promise<MConnection> => {
 		try {
-			const mConfigs = configService.get<MongoConfigs>('mongo');
+			const mConfigs = configService.getOrThrow<MongoConfigs>('mongo');
 
-			const uri = `mongodb+srv://${mConfigs.user}:${mConfigs.password}@${mConfigs.host}/${mConfigs.name}`;
+			const env = configService.getOrThrow<string>('appEnv');
+
+			let uri = `mongodb://${mConfigs.user}:${mConfigs.password}@${mConfigs.host}`;
+
+			// let uri = `mongodb://${mConfigs.host}/${mConfigs.name}`;
+
+			if (env === 'production') {
+				uri = `mongodb+srv://${mConfigs.user}:${mConfigs.password}@${mConfigs.host}/${mConfigs.name}`;
+			}
+			console.log({ uri });
 
 			const client: MongoClient = new MongoClient(uri, {
 				serverApi: {

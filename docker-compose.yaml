@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  development:
+    container_name: tsk-man-be-dev
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    environment:
+      - MONGO_NAME=tsk_man_dev
+      - MONGO_USER=root
+      - MONGO_PASSWORD=passwordRoot
+      - MONGO_HOST=mongodb:27017
+      - JWT_ALGORITHM=HS512
+      - JWT_SECRET=secretuponsecretWT
+    ports:
+      - '3080:3080'
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/srv/app
+      - /srv/app/node_modules
+    restart: unless-stopped
+    networks:
+      - tsk-man-network
+
+  # start the mongodb service as container
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - tsk-man-network
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=admin
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=passwordRoot
+
+networks:
+  tsk-man-network:
+
+volumes:
+  mongo_data:
+
