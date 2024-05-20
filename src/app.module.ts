@@ -7,6 +7,7 @@ import { AuthModule } from './modules/auth/auth.module';
 
 import { DatabaseModule } from './modules/mongodb/mongodb.module';
 import { ProjectModule } from './modules/project/project.module';
+import { TaskModule } from './modules/task/task.module';
 
 @Module({
 	imports: [
@@ -18,6 +19,7 @@ import { ProjectModule } from './modules/project/project.module';
 		DatabaseModule,
 		AuthModule,
 		ProjectModule,
+		TaskModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],

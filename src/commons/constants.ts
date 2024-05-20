@@ -6,6 +6,7 @@ export const CollectionNames = {
 	Users: 'users',
 	Sessions: 'sessions',
 	Project: 'projects',
+	Task: 'tasks',
 };
 
 export type CollectionNames = typeof CollectionNames;
