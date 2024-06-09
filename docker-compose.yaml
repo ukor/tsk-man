@@ -5,7 +5,7 @@ services:
     build:
       context: ./
       dockerfile: ./apps/tsk-api/Dockerfile
-    command: npm run start:dev
+      # command: npm run start:dev:api
     environment:
       - MONGO_NAME=tsk_man_dev
       - MONGO_USER=root
@@ -18,8 +18,8 @@ services:
     depends_on:
       - mongodb
     volumes:
-      - .:/srv/app
-      - /srv/app/node_modules
+      - .:/srv
+      - /srv/apps/node_modules
     restart: unless-stopped
     networks:
       - tsk-man-network

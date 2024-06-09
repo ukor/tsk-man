@@ -1,5 +1,5 @@
 dev:
-	docker-compose up development
+	docker compose up development
 
 close_dev:
-	docker-compose down development
+	docker compose down development

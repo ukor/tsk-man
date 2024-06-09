@@ -11,7 +11,7 @@
     "build": "turbo run build",
     "clean": "turbo run clean",
     "dev": "turbo run dev",
-    "start:dev": "turbo run start:dev",
+    "start:dev:api": "turbo run start:dev --filter=@tsk-man/api",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test"
