@@ -5,7 +5,6 @@ services:
     build:
       context: ./
       dockerfile: ./apps/tsk-api/Dockerfile
-      # command: npm run start:dev:api
     environment:
       - MONGO_NAME=tsk_man_dev
       - MONGO_USER=root

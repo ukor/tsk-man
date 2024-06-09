@@ -1,4 +1,4 @@
-FROM node:20-bullseye
+FROM node:alpine3.20
 
 WORKDIR /srv
 
@@ -10,10 +10,10 @@ RUN npm install turbo --global
 
 COPY turbo.json turbo.json
 
-RUN npm ci
+RUN npm install
 
 COPY . .
 
 EXPOSE 3083
 
-RUN turbo run start:dev --filter=@tsk-man/api
+CMD turbo run start:dev --filter=@tsk-man/api --env-mode=loose
