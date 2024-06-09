@@ -67,7 +67,6 @@ SQLit while bootstrapping the project (Hopefully I will revist).
 
 ## Why?
 
-- For a job interview
 - For trying out all my ideas that I cannot do in a live project. I have always
   wanted to play around with collaborative software. I also want to improve my
   unit testing with NestJS
