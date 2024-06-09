@@ -4,7 +4,7 @@ services:
     container_name: tsk-man-be-dev
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: ./apps/tsk-api/Dockerfile
     command: npm run start:dev
     environment:
       - MONGO_NAME=tsk_man_dev
